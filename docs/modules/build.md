@@ -34,7 +34,7 @@ Then use the image in `docker-compose.yml`:
 ```yaml [docker-compose.yml]
 services:
   tamamo:
-    image: tamamo-custom   # instead of tamamo/tamamo
+    image: tamamo-custom   # instead of ghcr.io/foxgirlsorg/tamamo
 ```
 
 Or let Compose build it:

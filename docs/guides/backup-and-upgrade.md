@@ -48,10 +48,10 @@ Then point the image at it:
 ```yaml [docker-compose.yml]
 services:
   tamamo:
-    image: tamamo/tamamo:${TAMAMO_VERSION:-latest}
+    image: ghcr.io/foxgirlsorg/tamamo:${TAMAMO_VERSION:-latest}
 ```
 
-Check the running version with `docker compose exec tamamo tamamo -version`. The web UI image, `tamamo/tamamo-webui`, uses the same kind of tag.
+Check the running version with `docker compose exec tamamo tamamo -version`. The web UI image, `ghcr.io/foxgirlsorg/tamamo-webui`, uses the same kind of tag.
 
 ## Upgrade
 

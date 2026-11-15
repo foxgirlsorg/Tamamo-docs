@@ -16,7 +16,7 @@ The web UI runs as a second container and talks to Tamamo's admin API.
    ```yaml
    services:
      tamamo:
-       image: tamamo/tamamo:latest
+       image: ghcr.io/foxgirlsorg/tamamo:latest
        restart: unless-stopped
        ports:
          - "8923:8923"              # visitors connect here
@@ -28,7 +28,7 @@ The web UI runs as a second container and talks to Tamamo's admin API.
          - ./data:/data             # settings live in data/tamamo.yaml
 
      webui:
-       image: tamamo/tamamo-webui:latest
+       image: ghcr.io/foxgirlsorg/tamamo-webui:latest
        restart: unless-stopped
        ports:
          - "8081:8081"              # admin web UI

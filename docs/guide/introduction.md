@@ -55,7 +55,7 @@ The browser must find a number that produces a SHA-256 hash starting with a set 
 - **The backend** (`tamamo`) is the proxy. It handles all visitor traffic, applies the rules, renders the checking page and forwards allowed requests. You always need it.
 - **The web UI** (`tamamo-webui`) is an optional settings editor that runs in your browser. It never serves visitors. Without it, you edit one file, `tamamo.yaml`, which is in the data folder.
 
-Both are published as Docker images: `tamamo/tamamo` and `tamamo/tamamo-webui`.
+Both are published as Docker images: `ghcr.io/foxgirlsorg/tamamo` and `ghcr.io/foxgirlsorg/tamamo-webui`.
 
 ## Features
 

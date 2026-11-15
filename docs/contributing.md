@@ -80,10 +80,10 @@ Run these commands in the [tamamo](https://github.com/foxgirlsorg/Tamamo) and [t
 
 ```bash
 cd tamamo
-docker build -t tamamo/tamamo .
+docker build -t ghcr.io/foxgirlsorg/tamamo .
 
 cd ../tamamo_webui
-docker build -t tamamo/tamamo-webui .
+docker build -t ghcr.io/foxgirlsorg/tamamo-webui .
 ```
 
 To run your local images, use [installation](/guide/installation) and change the `image:` lines in its compose file to these tags.
