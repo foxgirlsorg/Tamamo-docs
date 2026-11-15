@@ -59,15 +59,54 @@ The default action runs only when no check, module or rule decides. `challenge` 
 
 These are built into Tamamo and run on every request before any rule, in this order. All of them are optional and off until you set them up.
 
-1. [Unprotected pages](#unprotected-pages)
-2. [Bypass headers](#bypass-headers)
-3. [Verified bots](#verified-bots)
-4. The [rate limit](#rate-limit)
-5. [Webhooks](/config/webhooks)
+1. The [honeypot](#honeypot)
+2. [Unprotected pages](#unprotected-pages)
+3. [Bypass headers](#bypass-headers)
+4. [Verified bots](#verified-bots)
+5. The [rate limit](#rate-limit)
+6. [Webhooks](/config/webhooks)
 
 After them come the [modules](/config/modules), then the [rules](/config/rules). The first one that decides wins and the rest are skipped. In the web UI, they are the cards under **Before the rules** on the Protection screen.
 
 ![The Before the rules part of the Protection screen, with the Bypass headers and Rate limit cards](/img/ui/protection-checks.webp)
+
+### Honeypot
+
+Trap pages that no real visitor opens, such as `/wp-login.php` on a site without WordPress. Scanners that probe for them give themselves away. Whoever opens a trap page is banned by IP address, and every request they make gets the denied page until the ban ends, on every site with the honeypot on. That includes the trap request itself and [unprotected pages](#unprotected-pages).
+
+Put `honeypot:` under the `protection:` key you already have in `data/tamamo.yaml`:
+
+```yaml [data/tamamo.yaml]
+protection:
+  honeypot:
+    enabled: true
+    paths:
+      - /wp-login.php
+      - /.env
+      - /phpmyadmin/*
+    ban_hours: 0    # 0 = as long as a pass lasts (pass_hours)
+```
+
+| Key | Web UI | What it does |
+| --- | --- | --- |
+| `enabled` | Ban visitors who open a trap page | Turns the honeypot on. Default `false`. |
+| `paths` | Trap pages | Patterns like the paths of a [rule](/config/rules): `*` stands for any text, and `re:` starts a regular expression. |
+| `ban_hours` | Ban length | How long a ban lasts, in hours. `0` uses `pass_hours`, how long a pass lasts (a week by default). |
+
+In the web UI, the honeypot is the **Honeypot** card under **Before the rules** on the Protection screen. A banned request shows up in Activity as `honeypot` (the trap itself) or `honeypot ban` (everything after it).
+
+How bans work:
+
+- A ban covers one IPv4 address or one IPv6 `/64` network, like the [rate limit](#rate-limit).
+- A ban applies on every site whose honeypot is on, not only the site where the trap was opened. A site with its own protection settings and the honeypot off ignores bans.
+- Bans live in memory. Restarting Tamamo lifts them all.
+- Addresses in [`server.trusted_proxies`](/config/server) are never banned, so a trap visit can't ban your own reverse proxy.
+
+::: warning Tamamo must see real visitor IPs
+If Tamamo sees your reverse proxy's address instead of each visitor's, one trap visit bans everyone who comes through that proxy. Set the client IP source first, as in [Behind a reverse proxy](/guides/reverse-proxy#_3-tell-tamamo-to-trust-the-proxy).
+:::
+
+Never list a page your site really has. Anyone who follows a link to it, or a search engine that finds it, gets banned.
 
 ### Unprotected pages
 
@@ -85,7 +124,7 @@ protection:
 
 The patterns work like the paths of a [rule](/config/rules): `*` stands for any text, and `re:` starts a regular expression. In the web UI, the list is in the **Never checked** card on the Protection screen, one pattern per line.
 
-How this differs from an `allow` rule: a rule runs after the rate limit, the webhooks and the modules, so any of those can still stop the request. An unprotected page skips them all.
+How this differs from an `allow` rule: a rule runs after the rate limit, the webhooks and the modules, so any of those can still stop the request. An unprotected page skips them all. Only the [honeypot](#honeypot) still applies: a banned visitor can't fetch unprotected pages either.
 
 Don't list pages that cost your server work, such as search. A bot can fetch an unprotected page as often as it likes.
 
