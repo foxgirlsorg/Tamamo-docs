@@ -1,51 +1,56 @@
-# Tamamo docs
+<div align="center">
 
-Documentation for Tamamo, built with [VitePress](https://vitepress.dev/).
+<img src="docs/public/img/checking.png" width="120" alt="Eru, the foxgirls.org mascot" />
+
+<h1>TAMAMO DOCS</h1>
+
+**Documentation for Tamamo, the proof-of-work gate for your site.**
+
+[![Read the docs](https://img.shields.io/badge/Read-the%20docs-de6161?style=flat-square)](https://foxgirlsorg.github.io/Tamamo-docs/)
+[![Telegram](https://img.shields.io/badge/Telegram-@foxgirlsorg-de6161?style=flat-square&logo=telegram&logoColor=white)](https://t.me/foxgirlsorg)
+[![Website](https://img.shields.io/badge/Website-foxgirls.org-de6161?style=flat-square)](https://foxgirls.org)
+[![License](https://img.shields.io/badge/License-MIT-de6161?style=flat-square)](LICENSE)
+
+</div>
+
+---
+
+The source of [foxgirlsorg.github.io/Tamamo-docs](https://foxgirlsorg.github.io/Tamamo-docs/), built with [VitePress](https://vitepress.dev/). Code lives in [Tamamo](https://github.com/foxgirlsorg/Tamamo) and [Tamamo-webui](https://github.com/foxgirlsorg/Tamamo-webui).
 
 ## Work on the docs
 
 ```bash
 npm ci
-npm run dev
+npm run dev     # http://localhost:5173, reloads as you edit
+npm run build   # fails on dead links, so run it before you push
 ```
-
-This opens <http://localhost:5173>. Pages reload as you edit them.
-
-## Where things are
 
 | Path | What |
 | --- | --- |
-| `docs/guide/` | Getting started: what Tamamo is, quick start, the compose files |
-| `docs/webui/` | Using the web UI, screen by screen |
+| `docs/guide/` | What Tamamo is and how to install it |
 | `docs/config/` | `tamamo.yaml`, section by section |
-| `docs/guides/` | How-to guides (reverse proxy, Cloudflare, backups, ...) |
+| `docs/guides/` | How-to guides: reverse proxies, forward auth, backups |
+| `docs/modules/` | Writing and building modules |
 | `docs/reference/` | Environment variables, CLI flags, files, endpoints, troubleshooting |
-| `docs/public/compose/` | The two compose files, served as downloads |
-| `docs/public/img/ui/` | Web UI screenshots |
+| `docs/public/compose/` | The compose files, served as downloads |
 | `docs/.vitepress/config.mts` | Site title, navigation and sidebar |
-| `docs/.vitepress/theme/custom.css` | Colors (dark only, accent `#de6161`) |
 
 A new page must be added to the sidebar in `config.mts`.
 
-## Check before you push
-
-```bash
-npm run build
-```
-
-The build fails on dead links.
-
 ## Deploying
 
-GitHub Actions handles it:
-
-- **CI** (`.github/workflows/ci.yml`) builds every pull request and every branch except `main`.
+- **CI** (`.github/workflows/ci.yml`) builds pull requests and every branch except `main`.
 - **Deploy** (`.github/workflows/deploy.yml`) builds `main` and publishes it to GitHub Pages.
 
-One-time setup: in the repository go to **Settings → Pages → Build and deployment** and set **Source** to **GitHub Actions**. The base path comes from the Pages settings, so the same build works on `<owner>.github.io/<repo>/` and on a custom domain.
+One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**. The base path comes from the Pages settings, so the same build works on `<owner>.github.io/<repo>/` and on a custom domain. To build for a sub-path yourself: `DOCS_BASE=/Tamamo-docs/ npm run build`.
 
-To build for a sub-path yourself:
+## Credits
 
-```bash
-DOCS_BASE=/tamamo-docs/ npm run build
-```
+- Made by [foxgirls.org](https://foxgirls.org).
+- The mascot is **Eru**, the foxgirls.org mascot. Art by [tr1flu0r1d3.exe](https://t.me/tr1flu0r1d3_exe_art).
+
+---
+
+<div align="center">
+  <sub>© 2026 foxgirls.org &nbsp;·&nbsp; MIT License &nbsp;·&nbsp; <a href="https://foxgirls.org">foxgirls.org</a></sub>
+</div>
