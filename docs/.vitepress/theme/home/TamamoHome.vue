@@ -535,7 +535,7 @@ onBeforeUnmount(() => {
       </div>
       <div class="foot-legal">
         <p>© 2026 <a href="https://foxgirls.org">foxgirls.org</a> · MIT License</p>
-        <p>Mascot art by <a href="https://t.me/tr1flu0r1d3_exe_art">tr1flu0r1d3.exe</a></p>
+        <p>Mascot art by <a href="https://t.me/KiwiCR2">Kiwi CR2</a></p>
       </div>
       <p ref="markEl" class="foot-mark" aria-hidden="true"><span ref="markText">Tamamo</span></p>
     </footer>
