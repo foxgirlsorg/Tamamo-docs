@@ -1,0 +1,15 @@
+services:
+  tamamo:
+    image: tamamo/tamamo:latest
+    restart: unless-stopped
+    ports:
+      - "8923:8923"              # visitors connect here
+    environment:
+      TAMAMO_TARGET: http://app:80   # your website
+    volumes:
+      - ./data:/data             # settings live in data/tamamo.yaml
+
+  # Example website. Replace it with your own.
+  app:
+    image: traefik/whoami:latest
+    restart: unless-stopped

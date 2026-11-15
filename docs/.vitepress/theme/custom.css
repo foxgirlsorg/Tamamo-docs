@@ -1,0 +1,29 @@
+/* Dark only: zinc greys with the Tamamo red accent. */
+:root,
+.dark {
+  --vp-c-brand-1: #e57a7a;
+  --vp-c-brand-2: #de6161;
+  --vp-c-brand-3: #c94f4f;
+  --vp-c-brand-soft: rgba(222, 97, 97, 0.14);
+
+  --vp-c-bg: #09090b;
+  --vp-c-bg-alt: #0f0f12;
+  --vp-c-bg-elv: #18181b;
+  --vp-c-bg-soft: #18181b;
+
+  --vp-c-divider: #27272a;
+  --vp-c-border: #27272a;
+  --vp-c-gutter: #18181b;
+
+  --vp-c-text-1: #fafafa;
+  --vp-c-text-2: #a1a1aa;
+  --vp-c-text-3: #71717a;
+
+  --vp-code-block-bg: #121215;
+  --vp-button-brand-text: #ffffff;
+}
+
+.vp-doc img {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+}

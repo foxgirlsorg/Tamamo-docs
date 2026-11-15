@@ -1,0 +1,25 @@
+services:
+  tamamo:
+    image: tamamo/tamamo:latest
+    restart: unless-stopped
+    ports:
+      - "8923:8923"              # visitors connect here
+    environment:
+      TAMAMO_TARGET: http://app:80   # your website
+      TAMAMO_ENABLE_API: "true"      # lets the web UI change settings
+      TAMAMO_ADMIN_TRUSTED_PROXIES: private   # sign-in lockout per visitor, not per container
+    volumes:
+      - ./data:/data             # settings live in data/tamamo.yaml
+
+  webui:
+    image: tamamo/tamamo-webui:latest
+    restart: unless-stopped
+    ports:
+      - "8081:8081"              # admin web UI
+    depends_on:
+      - tamamo
+
+  # Example website. Replace it with your own.
+  app:
+    image: traefik/whoami:latest
+    restart: unless-stopped

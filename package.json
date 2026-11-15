@@ -1,0 +1,17 @@
+{
+  "name": "tamamo-docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "engines": {
+    "node": ">=20.0"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

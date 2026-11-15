@@ -1,0 +1,13 @@
+/node_modules
+docs/.vitepress/dist
+docs/.vitepress/cache
+.DS_Store
+npm-debug.log*
+.vitepress/cache
+
+# Agent/editor files live outside the repos
+.claude/
+AGENTS.md
+CLAUDE.md
+.agents/
+.codegraph/
