@@ -6,7 +6,7 @@
 
 **Documentation for Tamamo, the proof-of-work gate for your site.**
 
-[![Read the docs](https://img.shields.io/badge/Read-the%20docs-de6161?style=flat-square)](https://foxgirlsorg.github.io/Tamamo-docs/)
+[![Read the docs](https://img.shields.io/badge/Read-the%20docs-de6161?style=flat-square)](https://tamamo.foxgirls.org/)
 [![Telegram](https://img.shields.io/badge/Telegram-@foxgirlsorg-de6161?style=flat-square&logo=telegram&logoColor=white)](https://t.me/foxgirlsorg)
 [![Website](https://img.shields.io/badge/Website-foxgirls.org-de6161?style=flat-square)](https://foxgirls.org)
 [![License](https://img.shields.io/badge/License-MIT-de6161?style=flat-square)](LICENSE)
@@ -15,7 +15,7 @@
 
 ---
 
-The source of [foxgirlsorg.github.io/Tamamo-docs](https://foxgirlsorg.github.io/Tamamo-docs/), built with [VitePress](https://vitepress.dev/). Code lives in [Tamamo](https://github.com/foxgirlsorg/Tamamo) and [Tamamo-webui](https://github.com/foxgirlsorg/Tamamo-webui).
+The source of [tamamo.foxgirls.org](https://tamamo.foxgirls.org/), built with [VitePress](https://vitepress.dev/). Code lives in [Tamamo](https://github.com/foxgirlsorg/Tamamo) and [Tamamo-webui](https://github.com/foxgirlsorg/Tamamo-webui).
 
 ## Work on the docs
 
@@ -52,5 +52,5 @@ One-time setup: **Settings → Pages → Build and deployment → Source: GitHub
 ---
 
 <div align="center">
-  <sub>© 2026 foxgirls.org &nbsp;·&nbsp; MIT License &nbsp;·&nbsp; <a href="https://foxgirls.org">foxgirls.org</a></sub>
+  <sub>© 2026 <a href="https://foxgirls.org">foxgirls.org</a> &nbsp;·&nbsp; MIT License</sub>
 </div>

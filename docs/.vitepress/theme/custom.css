@@ -27,3 +27,19 @@
   border: 1px solid var(--vp-c-divider);
   border-radius: 10px;
 }
+
+/* Home page: no rule under the nav bar, no sideways scroll. */
+.Layout:has(.th) .VPNavBar .divider-line,
+.Layout:has(.th) .VPNavBar .divider {
+  display: none;
+}
+.Layout:has(.th) {
+  overflow-x: clip;
+}
+
+/* The nav bar runs out of room on tablets; Contributing stays in the sidebar. */
+@media (max-width: 1023px) {
+  .VPNavBarMenu a[href$='/contributing'] {
+    display: none;
+  }
+}
